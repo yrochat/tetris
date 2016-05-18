@@ -63,12 +63,13 @@ LaunchOptions::LaunchOptions(int argc, char* argv[])
 
                    << std::setw(25) << " --help" << "Display this information and exit" << std::endl
 
-                   << std::setw(25) << " --action, -a <char>" << "Define next action to be applied. Available actions are 'n' (no action)," << std::endl
-                   << std::setw(25) << " " << "'l' (move left), 'r' (move right), 'u' (spin the piece), 'd' (fall all the way down), 'f' (fall 1 unit down)" << std::endl
+                   << std::setw(25) << " --action, -a <char>" << "Define next action to be applied. Available actions are : " << std::endl
+                   << std::setw(25) << " " << "'l' (move left), 'r' (move right), 's' (spin the piece), 'a' (anti-spin the piece)," << std::endl
+                   << std::setw(25) << " " << "'d' (fall all the way down), 'f' (fall 1 unit down), 'n' (no action)" << std::endl
 
                    << std::setw(25) << " --last, -l <file>" << "XML file with last available state" << std::endl
 
-                   << std::setw(25) << " --img <file>" << "File name for the PNG image to generate" << std::endl
+                   << std::setw(25) << " --img <file>" << "File prefix for the GIF image to generate" << std::endl
 
                    << std::setw(25) << " --ascii <optional file> " << "Display state with ascii characters in file or in console if no file supplied" << std::endl
 

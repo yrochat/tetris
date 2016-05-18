@@ -4,7 +4,7 @@
  \date Apr 13, 2016
 **/
 
-#include <iostream>
+#include <cstdlib>
 #include "GameState.h"
 #include "GameAction.h"
 #include "LaunchOptions.h"
@@ -51,7 +51,11 @@ int main(int argc, char** argv)
 #if DEBUG
          std::cout << "Export png ..." << std::endl;
 #endif
-         next_state.export_png(options.img_file()); // Gen a new image in current_game repository
+         next_state.export_png(options.img_file() + ".png"); // Gen a new image in current_game repository
+
+         // Convert image to gif
+         string cmd = "convert " + options.img_file() + "*.png  " + options.img_file() + ".gif ; rm " + options.img_file() + "*.png";
+         system(cmd.c_str());
 
          // Export state to ascii
          if(options.ascii_export())
