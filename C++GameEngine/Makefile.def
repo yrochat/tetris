@@ -1,0 +1,47 @@
+# Makefile.def
+#############################################################################
+#                                                                           #
+#  Software    : TwitterTetris - GameEngine                                 #
+#                                                                           #
+#  Authors     : Gilles Steiner <gilles.steiner@gmail.com>                  #
+#  Web site    : https://github.com/yrochat/tetris                          #
+#                                                                           #
+#############################################################################
+# Default definitions -------------------------------------------------------
+
+# Application binary executable #############################################
+export EXE := $(shell pwd)/bin/tetris
+
+# Optimization level (opt is default, g for debug) ##########################
+MODE ?= opt
+
+# Parallel compilation (defined the number of file to compile simultaneously)
+NTHREADS = 8
+
+# C++ compilers and linker ##################################################
+export CXX := g++
+export LD  := g++
+
+#############################################################################
+# Define compilation options ################################################
+#############################################################################
+export VARFLAG := 
+export POSTLDFLAG := -lcairo
+
+export CEREAL_INCLUDE := $(shell pwd)/lib/cereal-1.1.2/include
+export CXXFLAGS := -std=c++11 -I $(CEREAL_INCLUDE)
+export LDFLAGS  := -std=c++11 -I $(CEREAL_INCLUDE)
+
+ifeq ($(MODE),opt)
+  export CXXFLAGS := $(CXXFLAGS) -O3 
+  export LDFLAGS  := $(LDFLAGS)  -O3 
+else
+  ifeq ($(MODE),g)
+    export CXXFLAGS := $(CXXFLAGS) -g -O0 -Wall
+    export LDFLAGS  := $(LDFLAGS) -g -O0 -Wall
+  else
+    ERROR := Error: The MODE $(MODE) is not valid ... aborting compilation.
+  endif
+endif
+
+#############################################################################
