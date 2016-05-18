@@ -51,8 +51,8 @@ public:
    // Return the matrix of the occupied space of the piece in the bounding box
    std::matrix<bool> occupied_pixels() const;
 
-   // Spin piece
-   void spin();
+   void spin();     // Spin piece clockwise
+   void antispin(); // Spin the piece anticlockwise
 
 private:
    // Serialization with cereal

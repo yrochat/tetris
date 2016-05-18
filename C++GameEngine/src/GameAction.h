@@ -42,9 +42,10 @@ public:
       case '>': { thisAction = Action::RIGHT; break; }
 
       // spin/up
-      case 'u': { thisAction = Action::SPIN;  break; }
       case 's': { thisAction = Action::SPIN;  break; }
-      case '^': { thisAction = Action::SPIN;  break; }
+
+      // anti-spin
+      case 'a': { thisAction = Action::ANTISPIN;  break; }
 
       // all the way down
       case 'd': { thisAction = Action::DOWN;  break; }

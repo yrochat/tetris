@@ -86,7 +86,7 @@ std::matrix<bool> GamePiece::occupied_pixels() const
       {
       case Orientation::UP:    { res[1][0] = false; res[0][2] = false; break;}
       case Orientation::LEFT:  { res[0][0] = false; res[2][1] = false; break;}
-      case Orientation::DOWN:  { res[1][0] = false; res[0][0] = false; break;}
+      case Orientation::DOWN:  { res[1][0] = false; res[0][2] = false; break;}
       case Orientation::RIGHT: { res[0][0] = false; res[2][1] = false; break;}
       }
       break;
@@ -126,6 +126,59 @@ std::matrix<bool> GamePiece::occupied_pixels() const
 
 // Spin piece
 void GamePiece::spin()
+{
+   switch(this->form)
+   {
+   case Tetrimino::I :
+   {
+      if(this->ori == Orientation::UP || this->ori == Orientation::DOWN)
+         this->addto_position( 1, -1);
+      else
+         this->addto_position(-1,  1);
+      break;
+   }
+
+   case Tetrimino::O :
+   {
+      // Nothing to do
+      break;
+   }
+
+   case Tetrimino::T :
+   {
+      switch(this->ori)
+      {
+      case Orientation::UP:    { this->addto_position( 0,  0); break;}
+      case Orientation::RIGHT: { this->addto_position( 1,  0); break;}
+      case Orientation::DOWN:  { this->addto_position(-1,  1); break;}
+      case Orientation::LEFT:  { this->addto_position( 0, -1); break;}
+
+      }
+      break;
+   }
+
+   default :
+   {
+      if(this->ori == Orientation::UP || this->ori == Orientation::DOWN)
+         this->addto_position(-1,  1);
+      else
+         this->addto_position( 1, -1);
+      break;
+   }
+   }
+
+   // next orientation for any piece
+   switch(this->ori)
+   {
+   case Orientation::UP:    { this->ori = Orientation::RIGHT; break;}
+   case Orientation::LEFT:  { this->ori = Orientation::UP;    break;}
+   case Orientation::DOWN:  { this->ori = Orientation::LEFT;  break;}
+   case Orientation::RIGHT: { this->ori = Orientation::DOWN;  break;}
+   }
+}
+
+// Anti-Spin piece
+void GamePiece::antispin()
 {
    switch(this->form)
    {

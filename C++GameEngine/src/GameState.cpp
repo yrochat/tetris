@@ -148,6 +148,37 @@ GameState::GameState(const GameState& from_state, const GameAction& action)
          else { this->current_piece = tmp; } // spin is successfull
          break;
       }
+      case Action::ANTISPIN :
+      {
+         tmp.antispin(); // Spin piece
+
+         if(this->draw_area.isout(tmp) || this->draw_area.intersect(tmp) ) // If spinned piece is out or intersects, try moving it 1 unit left or right
+         {
+            // Move left
+            tmp.addto_position(0, -1);
+
+            // Recheck
+            if(this->draw_area.isout(tmp) || this->draw_area.intersect(tmp) )
+            {
+               // Move right
+               tmp.addto_position(0, +2);
+
+               // Recheck
+               if(this->draw_area.isout(tmp) || this->draw_area.intersect(tmp) )
+               {
+                  // Move down
+                  tmp.addto_position(-1, -1);
+
+                  if(!(this->draw_area.isout(tmp) || this->draw_area.intersect(tmp) ))
+                  {
+                     this->current_piece = tmp; // spin is successfull with a down move
+                  }
+               } else { this->current_piece = tmp; } // spin is successfull with a right move
+            } else { this->current_piece = tmp; } // spin is successfull with a left move
+         }
+         else { this->current_piece = tmp; } // spin is successfull
+         break;
+      }
       default : // Do nothing
          break;
       }
