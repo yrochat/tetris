@@ -83,7 +83,7 @@ GameState::GameState(const GameState& from_state, const GameAction& action)
          tmp.addto_position(0, +1); check_or_revert = true;
          break;
       }
-      case Action::FALL :
+      case Action::DOWN :
       {
          tmp.addto_position(-1, 0); // Try to go one unit down
          if(this->draw_area.isin(tmp)) {
@@ -98,7 +98,7 @@ GameState::GameState(const GameState& from_state, const GameAction& action)
          }
          break;
       }
-      case Action::DOWN :
+      case Action::FALL :
       {
          while(true)
          {

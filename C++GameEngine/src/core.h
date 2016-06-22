@@ -45,8 +45,8 @@ namespace TwitterTetris
   // The list of available actions for a piece
   //
   // NONE  : no action         SPIN : turn the tetrimino clockwise                 ANTISPIN : turn the tetrimino anticlockwise
-  // LEFT  : try to go left    DOWN : hard fall of the tetrimino all the way down
-  // RIGHT : try to go right   FALL : 1 unit down (slow fall)
+  // LEFT  : try to go left    DOWN : 1 unit down (slow fall)
+  // RIGHT : try to go right   FALL : hard fall of the tetrimino all the way down
   enum class Action { NONE, LEFT, RIGHT, SPIN, ANTISPIN, DOWN, FALL };
 }
 

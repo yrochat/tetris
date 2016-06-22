@@ -47,12 +47,12 @@ public:
       // anti-spin
       case 'a': { thisAction = Action::ANTISPIN;  break; }
 
-      // all the way down
-      case 'd': { thisAction = Action::DOWN;  break; }
-      case '|': { thisAction = Action::DOWN;  break; }
-
       // fall (1 unit down)
+      case 'd': { thisAction = Action::DOWN;  break; }
+
+      // all the way down
       case 'f': { thisAction = Action::FALL;  break; }
+      case '|': { thisAction = Action::FALL;  break; }
 
       default : { thisAction = Action::NONE; }
       }
