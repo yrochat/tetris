@@ -31,3 +31,9 @@ C++GameEngine/bin
 
 # Doxygen log file
 C++GameEngine/Doxygen.log
+
+*.def
+
+*.gif
+
+*.xml
