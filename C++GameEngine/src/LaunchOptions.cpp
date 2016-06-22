@@ -65,7 +65,7 @@ LaunchOptions::LaunchOptions(int argc, char* argv[])
 
                    << std::setw(25) << " --action, -a <char>" << "Define next action to be applied. Available actions are : " << std::endl
                    << std::setw(25) << " " << "'l' (move left), 'r' (move right), 's' (spin the piece), 'a' (anti-spin the piece)," << std::endl
-                   << std::setw(25) << " " << "'d' (fall all the way down), 'f' (fall 1 unit down), 'n' (no action)" << std::endl
+                   << std::setw(25) << " " << "'f' (fall all the way down), 'd' (fall 1 unit down), 'n' (no action)" << std::endl
 
                    << std::setw(25) << " --last, -l <file>" << "XML file with last available state" << std::endl
 
