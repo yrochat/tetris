@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief Everything related with the way the executable is called.
  *
  **/
 /**
@@ -13,12 +13,12 @@
 #ifndef COMMANDLINE_H_
 #define COMMANDLINE_H_
 
-namespace TwitterTetris
+namespace TwT
 {
 class LaunchOptions
 {
 private:
-   char         maction = 'n'; // Available actions are 'n', 'l', 'r', 'u', 'd', 'f'
+   char         maction = 'n'; // Available actions are 'n', 'l', 'r', 'u', 'd', 'f', 'a', 's'
    std::string  mlast_state = ""; // File with last state saved
    std::string  mimg_file = "";
    bool         mdirectExit = false;
@@ -38,6 +38,6 @@ public:
    std::string properties() const { return mproperties; }
 };
 
-} /* namespace TwitterTetris */
+} /* namespace TwT */
 
 #endif /* COMMANDLINE_H_ */

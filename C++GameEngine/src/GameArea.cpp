@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief Represents the main drawing area where the game is played.
  *
  **/
 /**
@@ -10,7 +10,7 @@
 
 #include "GameArea.h"
 
-namespace TwitterTetris
+namespace TwT
 {
 // Check if a piece intersects the area
 bool GameArea::intersect(const GamePiece& _piece) const
@@ -91,4 +91,4 @@ void GameArea::erase_row(int r)
    }
 }
 
-} /* namespace TwitterTetris */
+} /* namespace TwT */

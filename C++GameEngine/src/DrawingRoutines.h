@@ -1,5 +1,5 @@
 /**
- * \brief Some routine for Cairo drawing
+ * \brief Some routines for Cairo drawing.
  *
  **/
 /**
@@ -14,7 +14,7 @@
 #ifndef DRAWINGROUTINES_H_
 #define DRAWINGROUTINES_H_
 
-namespace TwitterTetris {
+namespace TwT {
 
 enum class align { LEFT, RIGHT, CENTER };
 

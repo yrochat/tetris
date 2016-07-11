@@ -10,7 +10,7 @@
 #include "LaunchOptions.h"
 
 using namespace std;
-using namespace TwitterTetris;
+using namespace TwT;
 
 #define DEBUG 0
 

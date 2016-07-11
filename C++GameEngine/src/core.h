@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief Some basic includes and informations for the Game.
  *
  **/
 /**
@@ -28,7 +28,7 @@
 #include <cereal/access.hpp>
 #include <cereal/archives/xml.hpp> // XML serialization
 
-namespace TwitterTetris
+namespace TwT
 {
   // The list of available pieces
   //

@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief Some properties for the game are customizable.
  *
  **/
 /**
@@ -13,7 +13,7 @@
 
 #include "color.h"
 
-namespace TwitterTetris
+namespace TwT
 {
 class GameProperties
 {
@@ -141,6 +141,6 @@ private:
      }
 };
 
-} /* namespace TwitterTetris */
+} /* namespace TwT */
 
 #endif /* GAMEPROPERTIES_H_ */

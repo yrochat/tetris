@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief The GameState makes the game. Store and modify the game state, piece position, score, etc.
  *
  **/
 /**
@@ -11,7 +11,7 @@
 #include "GameState.h"
 #include "DrawingRoutines.h"
 
-namespace TwitterTetris
+namespace TwT
 {
 // Generate a state for a new game
 void GameState::NewGame()
@@ -590,4 +590,4 @@ void GameState::export_png(const std::string filename) const
 }
 
 
-} /* namespace TwitterTetris */
+} /* namespace TwT */

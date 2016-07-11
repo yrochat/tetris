@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief Represents the main drawing area where the game is played.
  *
  **/
 /**
@@ -15,7 +15,7 @@
 #include "color.h"
 #include "GamePiece.h"
 
-namespace TwitterTetris
+namespace TwT
 {
 class GameArea
 {
@@ -81,6 +81,6 @@ private:
    void erase_row(int r);
 };
 
-} /* namespace TwitterTetris */
+} /* namespace TwT */
 
 #endif /* GAMEAREA_H_ */

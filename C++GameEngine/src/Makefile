@@ -1,9 +1,9 @@
 #############################################################################
 #                                                                           #
-#  Software    : TwitterTetris - GameEngine                                 #
+#  Software    : TwT - GameEngine                                           #
 #                                                                           #
 #  Authors     : Gilles Steiner <gilles.steiner@gmail.com>                  #
-#  Web site    : https://github.com/yrochat/tetris                          #
+#                Yannick Rochat <yannick.rochat@gmail.com>                  #
 #                                                                           #
 #############################################################################
 .SUFFIXES: .h .cpp .o

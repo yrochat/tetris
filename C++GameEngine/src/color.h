@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief A class to handle rgba colors, dealing with double, integer or hexadecimal color codes and values.
  *
  **/
 /**

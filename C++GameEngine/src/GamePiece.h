@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief A game piece with its form, orientation, position, etc.
  *
  **/
 /**
@@ -14,7 +14,7 @@
 #ifndef GAMEPIECE_H_
 #define GAMEPIECE_H_
 
-namespace TwitterTetris
+namespace TwT
 {
 class GamePiece
 {
@@ -67,6 +67,6 @@ private:
    }
 };
 
-} /* namespace TwitterTetris */
+} /* namespace TwT */
 
 #endif /* GAMEPIECE_H_ */

@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief This class handle game actions.
  *
  **/
 /**
@@ -13,7 +13,7 @@
 
 #include "core.h"
 
-namespace TwitterTetris
+namespace TwT
 {
 class GameAction
 {
@@ -66,6 +66,6 @@ public:
 
 };
 
-} /* namespace TwitterTetris */
+} /* namespace TwT */
 
 #endif /* GAMEACTION_H_ */

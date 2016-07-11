@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief Everything related with the way the executable is called.
  *
  **/
 /**
@@ -10,7 +10,7 @@
 
 #include "LaunchOptions.h"
 
-namespace TwitterTetris
+namespace TwT
 {
 LaunchOptions::LaunchOptions(int argc, char* argv[])
 {
@@ -58,7 +58,7 @@ LaunchOptions::LaunchOptions(int argc, char* argv[])
       if(command_args[i] == std::string("--help"))
       {
          mdirectExit = true;
-         std::cout << "Usage: TwitterTetris [options]" << std::endl
+         std::cout << "Usage: TwT [options]" << std::endl
                    << "Options:" << std::endl << std::left
 
                    << std::setw(25) << " --help" << "Display this information and exit" << std::endl
@@ -78,4 +78,4 @@ LaunchOptions::LaunchOptions(int argc, char* argv[])
       }
    }
 }
-} /* namespace TwitterTetris */
+} /* namespace TwT */

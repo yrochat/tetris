@@ -1,5 +1,5 @@
 /**
- * \brief A class to handle current state of the game.
+ * \brief The GameState makes the game. Store and modify the game state, piece position, score, etc.
  *
  **/
 /**
@@ -16,7 +16,7 @@
 #include "GamePiece.h"
 #include "GameProperties.h"
 
-namespace TwitterTetris
+namespace TwT
 {
 class GameState
 {
@@ -90,6 +90,6 @@ private:
    void export_ascii_stream(std::ostream & sout = std::cout) const;
 };
 
-} /* namespace TwitterTetris */
+} /* namespace TwT */
 
 #endif /* GAMESTATE_H_ */

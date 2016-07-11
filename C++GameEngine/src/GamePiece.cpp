@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief A game piece with its form, orientation, position, etc.
  *
  **/
 /**
@@ -10,7 +10,7 @@
 
 #include "GamePiece.h"
 
-namespace TwitterTetris
+namespace TwT
 {
 // Compute bounding box of a piece according to its position, form and orientation
 std::pair<int,int> GamePiece::boundingbox() const
@@ -229,4 +229,4 @@ void GamePiece::antispin()
    }
 }
 
-} /* namespace TwitterTetris */
+} /* namespace TwT */

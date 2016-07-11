@@ -1,5 +1,5 @@
 /**
- * \brief A template class for MxN matrices
+ * \brief A template class for MxN matrices with C++11 support.
  *
  **/
 /**

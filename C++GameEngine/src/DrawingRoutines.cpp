@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief Some routines for Cairo drawing.
  *
  **/
 /**
@@ -10,18 +10,18 @@
 
 #include "DrawingRoutines.h"
 
-void TwitterTetris::cairo_set_source_rgb (cairo_t * cr, const std::color col)
+void TwT::cairo_set_source_rgb (cairo_t * cr, const std::color col)
 {
    cairo_set_source_rgb(cr, col.r(), col.g(),col.b());
 }
 
-void TwitterTetris::cairo_set_source_rgba (cairo_t * cr, const std::color col)
+void TwT::cairo_set_source_rgba (cairo_t * cr, const std::color col)
 {
    cairo_set_source_rgba(cr, col.r(), col.g(),col.b(), col.a());
 }
 
 // Draw a block at pos X,Y with dim Lx,Ly according to a given shape.
-void TwitterTetris::draw_block(cairo_t * cr, const int posX, const int posY, const int Lx, const int Ly, const Tetrimino shape, const std::color col)
+void TwT::draw_block(cairo_t * cr, const int posX, const int posY, const int Lx, const int Ly, const Tetrimino shape, const std::color col)
 {
    const float border_width = 0.12;
    int  b = (std::min(Lx,Ly)*border_width);  if(b % 2 == 1) ++b;
@@ -157,7 +157,7 @@ void TwitterTetris::draw_block(cairo_t * cr, const int posX, const int posY, con
    }
 }
 
-void TwitterTetris::draw_brick(cairo_t * cr, const int posX, const int posY, const int Lx, const int Ly, const float line_width, bool odd){
+void TwT::draw_brick(cairo_t * cr, const int posX, const int posY, const int Lx, const int Ly, const float line_width, bool odd){
 
    cairo_set_source_rgb (cr, 0.5, 0.5, 0.5);
    cairo_rectangle (cr, posX, posY, Lx, Ly);
@@ -203,7 +203,7 @@ void TwitterTetris::draw_brick(cairo_t * cr, const int posX, const int posY, con
 // PI
 double pi() { return 4.0*atan(1.0); }
 
-void TwitterTetris::rounded_rectangle(cairo_t * cr, const int x, const int y, const int width, const int height, const int line_width, const std::color stroke_col, const std::color fill_col, const double corner_radius_ratio)
+void TwT::rounded_rectangle(cairo_t * cr, const int x, const int y, const int width, const int height, const int line_width, const std::color stroke_col, const std::color fill_col, const double corner_radius_ratio)
 {
    double radius = corner_radius_ratio*std::min(width, height);   /* and corner curvature radius */
    double degrees = pi() / 180.0;
@@ -231,7 +231,7 @@ void TwitterTetris::rounded_rectangle(cairo_t * cr, const int x, const int y, co
    cairo_stroke (cr);
 }
 
-void TwitterTetris::draw_line(cairo_t * cr, const int x, const int y, const int x1, const int y1, const int width, const std::color col)
+void TwT::draw_line(cairo_t * cr, const int x, const int y, const int x1, const int y1, const int width, const std::color col)
 {
    cairo_set_source_rgba (cr, col);
    cairo_move_to (cr, x, y );
@@ -240,7 +240,7 @@ void TwitterTetris::draw_line(cairo_t * cr, const int x, const int y, const int 
    cairo_stroke (cr);
 }
 
-void TwitterTetris::box_and_text(cairo_t * cr, const int x, const int y, const int Lx, const int Ly, const int fontsize, const char* font_family, const bool bold, const std::string txt)
+void TwT::box_and_text(cairo_t * cr, const int x, const int y, const int Lx, const int Ly, const int fontsize, const char* font_family, const bool bold, const std::string txt)
 {
    rounded_rectangle(cr, x, y, Lx, Ly, 3, std::grey5, std::white, 0.05);
 
@@ -257,7 +257,7 @@ void TwitterTetris::box_and_text(cairo_t * cr, const int x, const int y, const i
 }
 
 
-void TwitterTetris::text(cairo_t * cr, const int x, const int y, const int Lx, const int Ly, const int fontsize, const char* font_family, const bool bold, const std::string txt, const align text_align)
+void TwT::text(cairo_t * cr, const int x, const int y, const int Lx, const int Ly, const int fontsize, const char* font_family, const bool bold, const std::string txt, const align text_align)
 {
    cairo_text_extents_t extents;
 
