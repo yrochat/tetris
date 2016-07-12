@@ -7,6 +7,8 @@ rm(list=ls())
 
 library(httr)
 library(twitteR)
+library(stringr)
+library(dplyr)
 
 # callback url http://127.0.0.1:1410
 
@@ -34,13 +36,14 @@ directions <- matrix(c("droite", "d",
                 "bas", "d",
                 "down", "d",
                 "\u2b07", "d",
-				"s", "s",
                 "spin", "s",
-                "a", "a",
                 "antispin", "a",
-                "f", "f",
                 "fall", "f"), ncol = 2, byrow = T)
                 
+directions <- as.data.frame(directions, stringsAsFactors = F)
+colnames(directions) <- c("input", "output")
+
+str_match(ment.df$text, directions$input)
 
 
 

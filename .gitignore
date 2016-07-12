@@ -37,3 +37,7 @@ C++GameEngine/Doxygen.log
 *.gif
 
 *.xml
+
+C++GameEngine/Makefile.def
+
+C++GameEngine/Makefile.def
