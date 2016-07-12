@@ -10,44 +10,79 @@ library(twitteR)
 library(stringr)
 library(dplyr)
 
+
 # callback url http://127.0.0.1:1410
+# to enter at https://apps.twitter.com/
+# this is standard for twitter + R
+
+
+# WE GREP ALL POTENTIAL INPUT COMMANDS
+
+directions <- matrix(c("droite", "r",
+                       "right", "r",
+                       "➡", "r",
+                       "gauche", "l",
+                       "left", "l",
+                       "\u2b05", "l",
+                       "bas", "d",
+                       "down", "d",
+                       "\u2b07", "d",
+                       "spin", "s",
+                       "antispin", "a",
+                       "fall", "f"), 
+                       ncol = 2, 
+                       byrow = T)
+                
+directions <- as.data.frame(directions, stringsAsFactors = F)
+colnames(directions) <- c("input", "output")
+
+directions.all <- str_c(directions$input, collapse = "|")
+
+
+# LOAD TWITTER TOKENS. THIS IS NOT SHARED PUBLICLY
 
 source("my_tokens.R")
+
+
+# twitteR AUTHENTICATION
 
 options(httr_oauth_cache=TRUE) 
 setup_twitter_oauth(api_key, api_secret, access_token, access_token_secret)
 
 
-
-
-# DEPUIS LE DERNIER TWEET
+# SINCE THE LAST TWEET
 
 ment <- mentions()
 ment.df <- twListToDF(ment)
 
-# FAIRE UN GREP SUR LES COMMANDES SUIVANTES
 
-directions <- matrix(c("droite", "d",
-				"right", "d",
-				"➡", "d",
-                "gauche", "l",
-                "left", "l",
-                "\u2b05", "l",
-                "bas", "d",
-                "down", "d",
-                "\u2b07", "d",
-                "spin", "s",
-                "antispin", "a",
-                "fall", "f"), ncol = 2, byrow = T)
-                
-directions <- as.data.frame(directions, stringsAsFactors = F)
-colnames(directions) <- c("input", "output")
+# SAVE MAX ID FOR LATER
 
-str_match(ment.df$text, directions$input)
+id.max <- as.character(max(ment.df$id))
 
 
+# PICK A COMMAND
 
-# S'IL NE RECUPERE RIEN IL FAIT DOWN
+id.commands.TF <- str_detect(ment.df$text, directions.all)
+
+
+# IF NO AVAILABLE COMMAND, IT'S GONNA BE DOWN ("d")
+
+if (sum(id.commands.TF) == 0) {
+    input <- "d"
+    
+# IF ONLY ONE COMMAND
+
+} else if (sum(id.commands.TF) == 1) {
+    input.df <- ment.df
+    input <- directions$output[directions$input == str_extract(input.df$text, directions.all)[1]]
+
+# IF MORE THAN ONE
+
+} else {
+    input.df <- ment.df[sample(which(id.commands.TF), 1),]
+    input <- directions$output[directions$input == str_extract(input.df$text, directions.all)[1]]
+}
 
 
 # LA COMMANDE À LANCER 
